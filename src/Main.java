@@ -10,17 +10,17 @@ public class Main {
             Queue.enqueue(qu, Stack.pop(st).getData());
         }
     }
-    //Transfer from a queue to a stack
+
+    //Transfer from a queue to an empty stack
     public static void tFromQueueToStack(Stack st,Queue qu){
         Stack temp = new Stack();
         int num = qu.getSize();
-
-        
+        //puts the queue into a temp stack
         for(int i=0;i<num;i++){
             Stack.push(temp,Queue.peek(qu).getData());
             Queue.dequeue(qu);
-
         }
+        //puts the temp stack into the empty stack
         for(int i=0;i<num;i++){
             Stack.push(st,Stack.peek(temp).getData());
             Stack.pop(temp);
@@ -35,11 +35,9 @@ public class Main {
             System.out.println("It's empty");
             return;
         }
-        //else{
             for(int i=0;i<num;i++){
                 Stack.push(temp,Stack.peek(st).getData());
                 Stack.pop(st);
-
             }
             for(int i=0;i<num;i++){
                 Stack.push(copy,Stack.peek(temp).getData());
@@ -47,15 +45,9 @@ public class Main {
             }
         }
 
-
-
-
     public static void main (String[] args){
 
-
-
-
-
+        //Test stack to show off program
         Stack test = new Stack();
         Stack.push(test,"kevin");
         Stack.push(test,"doug");
@@ -63,16 +55,13 @@ public class Main {
         Stack.push(test,"grape");
         System.out.println("Test the stack:"+Stack.peek(test).getData());
 
-
         //Testing the copy stack method
         System.out.println("Testing Stack to stack transfer");
         Stack sTest = new Stack();
         copyStack(test,sTest);
         System.out.println("Test the stack:"+Stack.peek(sTest).getData());
 
-
-
-
+        //Demonstrate Stack class methods work
         System.out.println("");
         System.out.println("I'll pop 2 elements off the list to show it works");
         Stack.pop(sTest);
@@ -80,7 +69,6 @@ public class Main {
         Stack.pop(sTest);
         System.out.println("Test the stack:"+Stack.peek(sTest).getData());
         System.out.println("");
-
         System.out.println("Now i will add 2 more and test the stack;");
         Stack.push(sTest,"Apple");
         System.out.println("Test the stack:"+Stack.peek(sTest).getData());
@@ -89,7 +77,7 @@ public class Main {
         System.out.println("");
         System.out.println("");
 
-
+        //Testing the Stack to queue Method
         System.out.println("Testing Stack to queue method");
         Queue qTest = new Queue();
         tFromStackToQueue(sTest,qTest);
@@ -98,8 +86,9 @@ public class Main {
         Queue.dequeue(qTest);
         System.out.println("Test the Queue:"+Queue.peek(qTest).getData());
         System.out.println("");
-
         System.out.println("");
+
+        //Testing the Queue to stack method
         System.out.println("Testing Queue to stack method");
         Stack emptyStack = new Stack();
         tFromQueueToStack(emptyStack,qTest);
@@ -110,14 +99,5 @@ public class Main {
         Stack.pop(emptyStack);
         System.out.println("Test the Stack:"+Stack.peek(emptyStack).getData());
         System.out.println("The stack is now empty, as Kevin was my first input");
-
-
-
-
-
-
-
-
-
     }
 }
