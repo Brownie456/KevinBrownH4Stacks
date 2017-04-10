@@ -3,11 +3,13 @@
  */
 public class Stack {
 
-    public static Node head;
+    public  Node head;
+    public  Node top;
     private int size;
 
     public Stack(){
         head = null;
+        top = null;
         size = 0;
     }
 //method to push nodes onto a stack
@@ -15,18 +17,20 @@ public class Stack {
         Node newNode = new Node(input, null,null);
         if (st.head == null){
             st.head = newNode;
+
             st.size++;
         }
         else {
-            newNode.setNext(head);
-            head.setPrev(newNode);
-            head = newNode;
+            newNode.setNext(st.head);
+            st.head.setPrev(newNode);
+            st.head = newNode;
             st.size++;
         }
     }
 
     //method to remove the top node from a stack
-    public static void pop(Stack st) {
+    public static Node pop(Stack st) {
+        Node temp = st.head;
 
         if (st.head == null) {
             System.out.println("The stack is empty");
@@ -37,6 +41,7 @@ public class Stack {
             st.head = st.head.getNext();
             }
             st.size--;
+            return temp;
         }
 
         //returns the size of a stack
@@ -45,9 +50,8 @@ public class Stack {
     }
 
     //view the top node of a stack
-    public static String peek(Stack st){
-        String temp = st.head.getData();
-                return temp;
+    public static Node peek(Stack a){
+                return a.head;
 
         }
 

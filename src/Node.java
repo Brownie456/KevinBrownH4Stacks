@@ -42,6 +42,6 @@ public class Node{
 
         /*To string method to return the data of node */
         public String toString() {
-            return " Name : "+this.data;
+            return " \nName : "+this.data;
         }
     }

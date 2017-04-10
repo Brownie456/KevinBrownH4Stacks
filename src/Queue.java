@@ -2,7 +2,7 @@
  * Created by Brownie on 4/2/2017.
  */
 public class Queue {
-    private Node front, back;
+    public Node front, back;
     private int size;
 
     //Default constructor
